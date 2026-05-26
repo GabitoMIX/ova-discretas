@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="OVA interactivo de Matematicas Discretas para repaso autonomo, practica y autoevaluacion."
+    />
+    <title>OVA Matematicas Discretas</title>
+    <link rel="stylesheet" href="./styles.css?v=20260521-study" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegacion del OVA">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">MD</span>
+          <div>
+            <p class="eyebrow">Universidad Simon Bolivar</p>
+            <h1>OVA Matematicas Discretas</h1>
+          </div>
+        </div>
+
+        <nav class="module-nav" id="moduleNav"></nav>
+
+        <div class="sidebar-footer">
+          <button class="ghost-button" id="overviewButton" type="button">Inicio</button>
+          <button class="ghost-button" id="soundToggleButton" type="button" aria-pressed="true">Sonido activado</button>
+          <button class="ghost-button" id="resetProgressButton" type="button">Reiniciar progreso</button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="hero" aria-labelledby="heroTitle">
+          <div class="hero-copy">
+            <p class="eyebrow">Objeto Virtual de Aprendizaje</p>
+            <h2 id="heroTitle">Matematicas Discretas para Ingenieria de Sistemas</h2>
+            <p>
+              Seis modulos con explicaciones breves, ejemplos guiados, laboratorios interactivos,
+              retroalimentacion inmediata y una evaluacion final.
+            </p>
+          </div>
+          <div class="progress-panel" aria-label="Progreso general">
+            <span class="progress-value" id="overallProgress">0%</span>
+            <span class="progress-label">avance guardado</span>
+            <div class="meter" aria-hidden="true">
+              <span id="overallMeter"></span>
+            </div>
+          </div>
+        </section>
+
+        <section id="appView" class="view" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <template id="moduleCardTemplate">
+      <article class="module-card">
+        <div class="module-card-top">
+          <span class="module-number"></span>
+          <span class="module-status"></span>
+        </div>
+        <h3></h3>
+        <p></p>
+        <button type="button" class="primary-button">Abrir modulo</button>
+      </article>
+    </template>
+
+    <script src="./app.js?v=20260521-study" defer></script>
+  </body>
+</html>
