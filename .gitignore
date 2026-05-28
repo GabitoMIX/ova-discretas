@@ -1,5 +1,8 @@
 .env
 node_modules/
-dist/
+dist/*
+!dist/
+!dist/OVA_Matematicas_Discretas_Lumi_Importable.h5p
+!dist/README_H5P_ENTREGA.md
 .DS_Store
 Thumbs.db

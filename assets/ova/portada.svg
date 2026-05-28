@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#006b3f"/><stop offset="0.55" stop-color="#00a887"/><stop offset="1" stop-color="#082b3f"/></linearGradient><filter id="s" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-opacity=".18"/></filter></defs>
+<rect width="1200" height="520" rx="34" fill="url(#g)"/>
+<g opacity=".18" stroke="#fff" stroke-width="6" fill="none"><path d="M90 420 C220 240 320 460 430 190S690 80 780 300 1010 120 1130 340"/><circle cx="940" cy="155" r="88"/><path d="M873 155h134M940 88v134"/></g>
+<g filter="url(#s)"><rect x="60" y="60" width="560" height="400" rx="28" fill="#ffffff" opacity=".97"/></g>
+<text x="100" y="138" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="46" fill="#083e35">OVA Interactivo</text>
+<text x="100" y="196" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="40" fill="#006b3f">Matemáticas Discretas</text>
+<line x1="100" y1="220" x2="580" y2="220" stroke="#e2f0e8" stroke-width="2"/>
+<text x="100" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#314b55">Conjuntos • Lógica • Probabilidad</text>
+<text x="100" y="292" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#314b55">Grafos • Lenguajes Formales</text>
+<text x="100" y="360" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="21" fill="#00a887">Diseñado para aprendizaje interactivo</text>
+<g transform="translate(720 70)"><circle cx="120" cy="110" r="70" fill="#fff" opacity=".9"/><circle cx="255" cy="150" r="70" fill="#fff" opacity=".75"/><circle cx="190" cy="245" r="70" fill="#fff" opacity=".82"/><text x="110" y="120" font-size="54" font-family="Arial" font-weight="900" fill="#006b3f">A</text><text x="245" y="160" font-size="54" font-family="Arial" font-weight="900" fill="#006b3f">B</text><text x="180" y="255" font-size="54" font-family="Arial" font-weight="900" fill="#006b3f">C</text><g stroke="#fff" stroke-width="8" fill="none"><circle cx="430" cy="110" r="34"/><circle cx="520" cy="185" r="34"/><circle cx="410" cy="275" r="34"/><path d="M458 132 L492 163M493 207 L438 254M430 145 L418 242"/></g></g>
+</svg>

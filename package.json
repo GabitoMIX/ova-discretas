@@ -1,0 +1,14 @@
+{
+  "name": "ova-discretas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OVA final interactivo de Matematicas Discretas listo para GitHub Pages y manuales PDF.",
+  "scripts": {
+    "check:js": "node --check app.js",
+    "manuales": "node generate_pdfs.js",
+    "h5p": "node generate_h5p_package.js"
+  },
+  "dependencies": {
+    "pdfkit": "^0.18.0"
+  }
+}

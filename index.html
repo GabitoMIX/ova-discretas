@@ -5,19 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="OVA interactivo de Matematicas Discretas para repaso autonomo, practica y autoevaluacion."
+      content="OVA interactivo de Matemáticas Discretas para repaso autónomo, práctica y autoevaluación."
     />
-    <title>OVA Matematicas Discretas</title>
-    <link rel="stylesheet" href="./styles.css?v=20260521-study" />
+    <title>OVA Matemáticas Discretas - Universidad Simón Bolívar</title>
+    <!-- MathJax renderiza las formulas LaTeX usadas por ejemplos, labs y quizzes. -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        options: {
+          enableMenu: false
+        },
+        startup: {
+          ready() {
+            MathJax.startup.defaultReady();
+            window.dispatchEvent(new Event('mathjax-ready'));
+          }
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./styles.css?v=20260528-v13" />
   </head>
   <body>
     <div class="app-shell">
-      <aside class="sidebar" aria-label="Navegacion del OVA">
+      <!-- Fondo oscurecedor overlay para dispositivos moviles -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- Boton flotante para abrir/cerrar la barra lateral (hamburger animado) -->
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menú de navegación" aria-expanded="false" title="Abrir menú">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Sidebar fija: marca, progreso, navegacion por modulos y controles globales. -->
+      <aside class="sidebar" aria-label="Navegación del OVA">
         <div class="brand">
-          <span class="brand-mark" aria-hidden="true">MD</span>
+          <img src="./resoucers/logo_institucional.png" alt="Universidad Simón Bolívar" class="brand-logo" />
           <div>
-            <p class="eyebrow">Universidad Simon Bolivar</p>
-            <h1>OVA Matematicas Discretas</h1>
+            <p class="eyebrow">U. Simón Bolívar</p>
+            <h1>OVA Matemáticas Discretas</h1>
+            <small>OVA final interactivo</small>
+          </div>
+        </div>
+
+        <div class="sidebar-progress" aria-label="Progreso general">
+          <div class="meter" aria-hidden="true">
+            <span id="sidebarMeter"></span>
+          </div>
+          <div class="sidebar-progress-row">
+            <span id="sidebarDoneText">0/6 módulos</span>
+            <strong id="sidebarProgress">0%</strong>
           </div>
         </div>
 
@@ -25,12 +66,15 @@
 
         <div class="sidebar-footer">
           <button class="ghost-button" id="overviewButton" type="button">Inicio</button>
+          <button class="ghost-button" id="playgroundButton" type="button">Pruebas Libres (Playground)</button>
+          <button class="ghost-button" id="themeToggleButton" type="button">Modo oscuro</button>
           <button class="ghost-button" id="soundToggleButton" type="button" aria-pressed="true">Sonido activado</button>
           <button class="ghost-button" id="resetProgressButton" type="button">Reiniciar progreso</button>
         </div>
       </aside>
 
       <main class="content">
+        <!-- Hero institucional: primera senal visual del OVA final. -->
         <section class="hero" aria-labelledby="heroTitle">
           <div class="hero-copy">
             <p class="eyebrow">Objeto Virtual de Aprendizaje</p>
@@ -40,6 +84,9 @@
               retroalimentacion inmediata y una evaluacion final.
             </p>
           </div>
+          <figure class="hero-media" aria-label="Portada visual del OVA">
+            <img src="./assets/ova/portada.svg?v=20260528-v9" alt="" />
+          </figure>
           <div class="progress-panel" aria-label="Progreso general">
             <span class="progress-value" id="overallProgress">0%</span>
             <span class="progress-label">avance guardado</span>
@@ -49,10 +96,12 @@
           </div>
         </section>
 
+        <!-- appView es el punto de montaje de la SPA: inicio, modulos y evaluacion final. -->
         <section id="appView" class="view" aria-live="polite"></section>
       </main>
     </div>
 
+    <!-- Plantilla reutilizada por app.js para crear tarjetas de modulos. -->
     <template id="moduleCardTemplate">
       <article class="module-card">
         <div class="module-card-top">
@@ -65,6 +114,6 @@
       </article>
     </template>
 
-    <script src="./app.js?v=20260521-study" defer></script>
+    <script src="./app.js?v=20260528-v13" defer></script>
   </body>
 </html>
