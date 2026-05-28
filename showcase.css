@@ -1,13 +1,13 @@
 :root {
-  --bg: #07120d;
-  --bg-soft: #0d1b15;
+  --bg: #071526;
+  --bg-soft: #0d1b2a;
   --surface: rgba(255, 255, 255, 0.08);
   --surface-strong: rgba(255, 255, 255, 0.13);
   --text: #f4fbf7;
   --muted: #b7c6bd;
-  --primary: #28d58f;
+  --primary: #35d6d0;
   --secondary: #58b8ff;
-  --gold: #ffd166;
+  --gold: #9fd0ff;
   --red: #ff6b6b;
   --border: rgba(255, 255, 255, 0.16);
   --shadow: 0 26px 70px rgba(0, 0, 0, 0.34);
@@ -31,7 +31,7 @@ body {
   background:
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, #07120d 0%, #0b1628 48%, #07120d 100%);
+    linear-gradient(180deg, #071526 0%, #0b1628 48%, #071526 100%);
   background-size: 42px 42px, 42px 42px, auto;
 }
 
@@ -45,7 +45,7 @@ a {
   top: 0;
   z-index: 20;
   border-bottom: 1px solid var(--border);
-  background: rgba(7, 18, 13, 0.82);
+  background: rgba(7, 21, 38, 0.86);
   backdrop-filter: blur(18px);
 }
 
@@ -114,8 +114,8 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(7, 18, 13, 0.92), rgba(7, 18, 13, 0.72), rgba(7, 18, 13, 0.52)),
-    linear-gradient(180deg, rgba(7, 18, 13, 0.16), rgba(7, 18, 13, 0.94)),
+    linear-gradient(90deg, rgba(7, 21, 38, 0.94), rgba(7, 21, 38, 0.76), rgba(7, 21, 38, 0.54)),
+    linear-gradient(180deg, rgba(7, 21, 38, 0.16), rgba(7, 21, 38, 0.94)),
     url("assets/ova/portada.svg") right center / min(760px, 72vw) no-repeat;
 }
 
@@ -171,6 +171,10 @@ h3 {
   gap: 0.85rem;
 }
 
+.hero-actions .btn {
+  min-width: 172px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -187,8 +191,9 @@ h3 {
 }
 
 .btn-primary {
-  color: #06120d;
-  background: linear-gradient(135deg, var(--primary), var(--gold));
+  color: #03151b;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 16px 42px rgba(53, 214, 208, 0.22);
 }
 
 .btn-secondary {
@@ -200,7 +205,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-top: 2rem;
+  margin-top: 2.1rem;
 }
 
 .status-strip span {
