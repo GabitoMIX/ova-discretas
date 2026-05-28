@@ -3,8 +3,6 @@
 
 Este manual explica la organización interna del código para que el proyecto pueda mantenerse, ampliarse y revisarse con facilidad.
 
----
-
 ## 1. Arquitectura General
 
 El OVA es una Single Page Application estática. Sus piezas principales son:
@@ -16,8 +14,6 @@ El OVA es una Single Page Application estática. Sus piezas principales son:
 * `generate_h5p_package.js`: generador del paquete `.h5p` importable en Lumi.
 
 No hay backend. Todo el comportamiento ocurre en el navegador.
-
----
 
 ## 2. Estado Y Persistencia
 
@@ -43,8 +39,6 @@ La función `defaultState()` define la estructura base:
 
 `loadState()` mezcla el estado guardado con el estado por defecto para soportar futuras versiones sin romper datos anteriores. `saveState()` serializa el progreso después de interacciones importantes.
 
----
-
 ## 3. Fuente De Contenido
 
 El contenido principal está en `app.js`:
@@ -60,8 +54,6 @@ El contenido principal está en `app.js`:
 
 Para editar teoría, preguntas o ejemplos, normalmente basta con modificar estos objetos sin tocar el motor de renderizado.
 
----
-
 ## 4. Renderizado De Vistas
 
 Las vistas principales son:
@@ -72,8 +64,6 @@ Las vistas principales son:
 * `renderPlayground()`: playground global de pruebas libres.
 
 El diseño evita duplicar HTML manualmente: las vistas se reconstruyen desde los datos del módulo y el estado guardado.
-
----
 
 ## 5. Sistema De Pestañas
 
@@ -86,8 +76,6 @@ El diseño evita duplicar HTML manualmente: las vistas se reconstruyen desde los
 
 Al cambiar de pestaña se detiene la narración activa, se actualiza el panel visible, se refresca el simulador correspondiente y se vuelve a ejecutar el renderizado matemático.
 
----
-
 ## 6. Renderizado Matemático
 
 `renderMath(root)` intenta usar MathJax v3 cuando está disponible. Si el CDN no responde, ejecuta `renderLocalLatex(root)`, un fallback local para que símbolos frecuentes como fracciones, binomiales, conjuntos y expresiones lógicas sigan legibles.
@@ -97,8 +85,6 @@ Funciones auxiliares:
 * `inlineMath(tex)`: devuelve notación LaTeX en línea.
 * `displayMath(tex)`: devuelve bloque matemático.
 * `latexToHtml(tex)`: transforma notación común a HTML local.
-
----
 
 ## 7. Laboratorios
 
@@ -113,8 +99,6 @@ Funciones auxiliares:
 
 Las funciones `update...Lab()` calculan resultados y refrescan la interfaz. El patrón es siempre el mismo: leer inputs, validar, calcular, pintar resultados y llamar a `renderMath()` si aparecen fórmulas.
 
----
-
 ## 8. Juegos, Actividades Y Evaluaciones
 
 `renderGame(moduleId)` monta minijuegos de clasificación. `checkGame(moduleId)` valida respuestas y guarda progreso.
@@ -128,8 +112,6 @@ Las funciones `update...Lab()` calculan resultados y refrescan la interfaz. El p
 
 `createQuestionCard(question, key, onAnswer)` es el componente reutilizable para autoevaluaciones y evaluación final. Maneja selección, comprobación, reintento, solución y persistencia.
 
----
-
 ## 9. Audio Y Voz
 
 El OVA usa dos sistemas:
@@ -138,8 +120,6 @@ El OVA usa dos sistemas:
 * **SpeechSynthesis API:** lee textos teóricos y retroalimentaciones en voz alta.
 
 `stopSpeaking()` cancela narraciones activas al cambiar de vista o pestaña.
-
----
 
 ## 10. Certificado
 
@@ -151,8 +131,6 @@ Cuando el estudiante obtiene 80% o más en la evaluación final:
 4. `window.print()` permite guardar o imprimir como PDF.
 
 El nombre se guarda localmente para reutilizarlo si el estudiante vuelve a abrir el certificado.
-
----
 
 ## 11. Generador H5P
 
@@ -168,8 +146,6 @@ H5P.OvaMatematicasDiscretas-1.0/styles/ova.css
 ```
 
 El contenido se construye desde datos equivalentes a los seis módulos del OVA. La versión H5P es editable/importable en Lumi y complementa a la app web completa.
-
----
 
 ## 12. Cómo Agregar Un Nuevo Módulo
 
