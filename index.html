@@ -1,119 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="OVA interactivo de Matemáticas Discretas para repaso autónomo, práctica y autoevaluación."
-    />
-    <title>OVA Matemáticas Discretas - Universidad Simón Bolívar</title>
-    <!-- MathJax renderiza las formulas LaTeX usadas por ejemplos, labs y quizzes. -->
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['\\(', '\\)']],
-          displayMath: [['\\[', '\\]']]
-        },
-        options: {
-          enableMenu: false
-        },
-        startup: {
-          ready() {
-            MathJax.startup.defaultReady();
-            window.dispatchEvent(new Event('mathjax-ready'));
-          }
-        }
-      };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" href="./styles.css?v=20260528-v13" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <!-- Fondo oscurecedor overlay para dispositivos moviles -->
-      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OVA Matemáticas Discretas | Presentación del proyecto</title>
+  <meta name="description" content="Página de presentación del OVA interactivo de Matemáticas Discretas, con módulos, laboratorios, H5P, manuales y publicación estática." />
+  <link rel="icon" href="assets/ova-showcase-logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="showcase.css" />
+</head>
 
-      <!-- Boton flotante para abrir/cerrar la barra lateral (hamburger animado) -->
-      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menú de navegación" aria-expanded="false" title="Abrir menú">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <img src="assets/ova-showcase-logo.svg" alt="Logo OVA Matemáticas Discretas" />
+        <span>OVA Discretas</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <!-- Sidebar fija: marca, progreso, navegacion por modulos y controles globales. -->
-      <aside class="sidebar" aria-label="Navegación del OVA">
-        <div class="brand">
-          <img src="./resoucers/logo_institucional.png" alt="Universidad Simón Bolívar" class="brand-logo" />
-          <div>
-            <p class="eyebrow">U. Simón Bolívar</p>
-            <h1>OVA Matemáticas Discretas</h1>
-            <small>OVA final interactivo</small>
-          </div>
+      <div class="nav-links">
+        <a href="#proposito">Propósito</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#modulos">Módulos</a>
+        <a href="#entregables">Entregables</a>
+        <a href="#publicacion">Publicación</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">Objeto Virtual de Aprendizaje · Matemáticas Discretas</p>
+        <h1 id="heroTitle">Una experiencia interactiva para aprender, practicar y evaluar conceptos discretos</h1>
+        <p class="hero-text">
+          El OVA integra teoría, laboratorios, juegos, evaluación final, certificado, recursos de aula,
+          manuales y paquete H5P/Lumi en una aplicación web estática lista para publicación.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#entregables">Ver entregables</a>
+          <a class="btn btn-secondary" href="dist/OVA_Matematicas_Discretas_Lumi_Importable.h5p">Descargar H5P</a>
         </div>
 
-        <div class="sidebar-progress" aria-label="Progreso general">
-          <div class="meter" aria-hidden="true">
-            <span id="sidebarMeter"></span>
-          </div>
-          <div class="sidebar-progress-row">
-            <span id="sidebarDoneText">0/6 módulos</span>
-            <strong id="sidebarProgress">0%</strong>
-          </div>
+        <div class="status-strip" aria-label="Características principales">
+          <span>HTML + CSS + JS</span>
+          <span>GitHub Pages</span>
+          <span>H5P/Lumi</span>
+          <span>MathJax</span>
+          <span>Manual PDF</span>
         </div>
+      </div>
+    </section>
 
-        <nav class="module-nav" id="moduleNav"></nav>
+    <section id="proposito" class="section split">
+      <div class="section-copy">
+        <p class="eyebrow">Contexto académico</p>
+        <h2>Qué problema resuelve</h2>
+        <p>
+          En Matemáticas Discretas muchos temas se vuelven abstractos si solo se trabajan desde
+          definiciones o ejercicios estáticos. Este OVA convierte la teoría en práctica guiada,
+          visual e interactiva para fortalecer el aprendizaje autónomo.
+        </p>
+      </div>
 
-        <div class="sidebar-footer">
-          <button class="ghost-button" id="overviewButton" type="button">Inicio</button>
-          <button class="ghost-button" id="playgroundButton" type="button">Pruebas Libres (Playground)</button>
-          <button class="ghost-button" id="themeToggleButton" type="button">Modo oscuro</button>
-          <button class="ghost-button" id="soundToggleButton" type="button" aria-pressed="true">Sonido activado</button>
-          <button class="ghost-button" id="resetProgressButton" type="button">Reiniciar progreso</button>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-icon">01</span>
+          <h3>Conceptos difíciles</h3>
+          <p>Los laboratorios ayudan a visualizar tablas de verdad, conjuntos, cadenas, probabilidad, binomial y grafos.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon">02</span>
+          <h3>Práctica autónoma</h3>
+          <p>El estudiante puede experimentar con entradas propias y recibir retroalimentación inmediata.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon">03</span>
+          <h3>Evidencia de entrega</h3>
+          <p>Incluye manuales, paquete H5P, recursos de apoyo y una versión web publicable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section showcase-panel">
+      <div class="section-copy compact">
+        <p class="eyebrow">Solución propuesta</p>
+        <h2>Un OVA completo, estático y reutilizable</h2>
+        <p>
+          La aplicación no necesita backend ni instalación para ejecutarse. Todo vive en el navegador,
+          por eso puede presentarse desde GitHub Pages o alojarse como sitio estático en Dokploy.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+        <article class="info-card">
+          <img src="assets/ova/venn.svg" alt="" />
+          <h3>Laboratorios visuales</h3>
+          <p>Simuladores para operar conjuntos, validar cadenas, calcular probabilidades y analizar grafos.</p>
+        </article>
+
+        <article class="info-card">
+          <img src="assets/ova/probabilidad.svg" alt="" />
+          <h3>Evaluación guiada</h3>
+          <p>Autoevaluaciones, juegos, feedback inmediato, progreso local y evaluación final integradora.</p>
+        </article>
+
+        <article class="info-card">
+          <img src="assets/ova/grafo.svg" alt="" />
+          <h3>Entrega formal</h3>
+          <p>Manual de usuario, manual técnico, manual de arquitectura y archivo H5P importable en Lumi.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="modulos" class="section">
+      <div class="section-copy">
+        <p class="eyebrow">Ruta de aprendizaje</p>
+        <h2>Seis módulos conectados</h2>
+      </div>
+
+      <div class="module-grid">
+        <article>
+          <span>Lógica</span>
+          <h3>Proposiciones y tablas de verdad</h3>
+          <p>Conectivos, condicional, bicondicional, tautologías, contradicciones y contingencias.</p>
+        </article>
+
+        <article>
+          <span>Conjuntos</span>
+          <h3>Operaciones y Venn</h3>
+          <p>Pertenencia, subconjuntos, unión, intersección, complemento y conjunto potencia.</p>
+        </article>
+
+        <article>
+          <span>Cadenas</span>
+          <h3>Alfabetos y lenguajes</h3>
+          <p>Longitud, reversa, potencia, prefijos, sufijos, subcadenas y validación formal.</p>
+        </article>
+
+        <article>
+          <span>Probabilidad</span>
+          <h3>Espacios muestrales</h3>
+          <p>Eventos, conteo equiprobable, casos favorables y probabilidad clásica.</p>
+        </article>
+
+        <article>
+          <span>Binomial</span>
+          <h3>Variables aleatorias discretas</h3>
+          <p>Ensayos, éxitos, fracasos, combinatoria y distribución binomial.</p>
+        </article>
+
+        <article>
+          <span>Grafos</span>
+          <h3>Vértices, aristas y recorridos</h3>
+          <p>Grados, listas, matrices de adyacencia y criterio euleriano.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="entregables" class="section deliverables">
+      <div class="section-copy compact">
+        <p class="eyebrow">Repositorio</p>
+        <h2>Entregables del proyecto</h2>
+        <p>Estos archivos permiten presentar el OVA, documentarlo y reutilizarlo en Lumi.</p>
+      </div>
+
+      <div class="deliverable-grid">
+        <a class="resource-card" href="manuales/manual_usuario.pdf">
+          <span>PDF</span>
+          <h3>Manual de usuario</h3>
+          <p>Guía de navegación y uso del OVA para estudiantes.</p>
+        </a>
+
+        <a class="resource-card" href="manuales/manual_implementacion.pdf">
+          <span>PDF</span>
+          <h3>Manual de implementación</h3>
+          <p>Preparación del repo, validaciones y publicación estática.</p>
+        </a>
+
+        <a class="resource-card" href="manuales/manual_codigo_arquitectura.pdf">
+          <span>PDF</span>
+          <h3>Manual de código</h3>
+          <p>Arquitectura, módulos, laboratorios, estado y generadores.</p>
+        </a>
+
+        <a class="resource-card" href="dist/OVA_Matematicas_Discretas_Lumi_Importable.h5p">
+          <span>H5P</span>
+          <h3>Paquete Lumi</h3>
+          <p>Versión importable y editable del OVA en Lumi Desktop.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="publicacion" class="section deploy">
+      <div class="deploy-copy">
+        <p class="eyebrow">Hosting</p>
+        <h2>Landing lista para Dokploy como sitio estático</h2>
+        <p>
+          Esta rama puede publicarse de forma independiente como página de presentación.
+          La app principal del OVA puede permanecer en GitHub Pages, mientras esta landing vive en Dokploy.
+        </p>
+      </div>
+
+      <article class="code-card">
+        <div class="code-card-header">
+          <h3>Configuración sugerida</h3>
+          <button class="copy-btn" type="button" data-copy="deploy-code">Copiar</button>
         </div>
-      </aside>
-
-      <main class="content">
-        <!-- Hero institucional: primera senal visual del OVA final. -->
-        <section class="hero" aria-labelledby="heroTitle">
-          <div class="hero-copy">
-            <p class="eyebrow">Objeto Virtual de Aprendizaje</p>
-            <h2 id="heroTitle">Matematicas Discretas para Ingenieria de Sistemas</h2>
-            <p>
-              Seis modulos con explicaciones breves, ejemplos guiados, laboratorios interactivos,
-              retroalimentacion inmediata y una evaluacion final.
-            </p>
-          </div>
-          <figure class="hero-media" aria-label="Portada visual del OVA">
-            <img src="./assets/ova/portada.svg?v=20260528-v9" alt="" />
-          </figure>
-          <div class="progress-panel" aria-label="Progreso general">
-            <span class="progress-value" id="overallProgress">0%</span>
-            <span class="progress-label">avance guardado</span>
-            <div class="meter" aria-hidden="true">
-              <span id="overallMeter"></span>
-            </div>
-          </div>
-        </section>
-
-        <!-- appView es el punto de montaje de la SPA: inicio, modulos y evaluacion final. -->
-        <section id="appView" class="view" aria-live="polite"></section>
-      </main>
-    </div>
-
-    <!-- Plantilla reutilizada por app.js para crear tarjetas de modulos. -->
-    <template id="moduleCardTemplate">
-      <article class="module-card">
-        <div class="module-card-top">
-          <span class="module-number"></span>
-          <span class="module-status"></span>
-        </div>
-        <h3></h3>
-        <p></p>
-        <button type="button" class="primary-button">Abrir modulo</button>
+        <pre id="deploy-code"><code>Rama: ova-showcase-dokploy
+Tipo: sitio estático
+Directorio raíz: /
+Build command: sin comando
+Publish directory: /
+Entrada: index.html</code></pre>
       </article>
-    </template>
+    </section>
+  </main>
 
-    <script src="./app.js?v=20260528-v13" defer></script>
-  </body>
+  <footer class="site-footer">
+    <span>OVA Matemáticas Discretas</span>
+    <span>Universidad Simón Bolívar · Ingeniería de Sistemas</span>
+  </footer>
+
+  <script src="showcase.js"></script>
+</body>
 </html>

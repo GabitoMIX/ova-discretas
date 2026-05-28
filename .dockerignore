@@ -1,7 +1,0 @@
-.git
-COSAS DEL AULA
-*.pdf
-*.docx
-node_modules
-dist
-.env
