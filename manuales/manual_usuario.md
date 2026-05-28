@@ -3,8 +3,6 @@
 
 Este manual explica cómo usar el OVA final de Matemáticas Discretas. El recurso funciona como un sitio web estático: puede abrirse desde `index.html` o publicarse en GitHub Pages.
 
----
-
 ## 1. Acceso Al OVA
 
 El estudiante puede acceder de dos formas:
@@ -13,8 +11,6 @@ El estudiante puede acceder de dos formas:
 * **Web:** entrar al enlace publicado en GitHub Pages.
 
 No se requiere iniciar sesión, instalar programas ni conectar una base de datos.
-
----
 
 ## 2. Pantalla Principal
 
@@ -29,8 +25,6 @@ La pantalla inicial muestra la ruta de aprendizaje con seis módulos:
 
 Cada tarjeta permite entrar al módulo correspondiente. La barra lateral muestra progreso, accesos principales, sonido, tema visual y reinicio.
 
----
-
 ## 3. Barra Lateral
 
 La barra lateral incluye:
@@ -42,8 +36,6 @@ La barra lateral incluye:
 * **Reiniciar progreso:** borra el avance guardado en el navegador actual.
 
 En pantallas pequeñas funciona como menú desplegable.
-
----
 
 ## 4. Módulos
 
@@ -65,23 +57,17 @@ Incluye minijuegos y autoevaluaciones con retroalimentación inmediata.
 
 Permite probar entradas propias dentro del tema actual.
 
----
-
 ## 5. Evaluación Final Y Certificado
 
 El progreso se guarda automáticamente en `localStorage`. Cuando el estudiante completa la ruta, puede presentar la evaluación final.
 
 Si obtiene 80% o más, el sistema permite generar un certificado digital imprimible desde el navegador.
 
----
-
 ## 6. LaTeX, Audio Y Accesibilidad
 
 Las fórmulas se renderizan con MathJax. Si MathJax no carga, el OVA usa un fallback local para mantener las expresiones legibles.
 
 Los botones de audio usan `speechSynthesis` para leer contenido teórico en voz alta. La lectura se detiene al cambiar de vista o pestaña.
-
----
 
 ## 7. Material De Apoyo
 
@@ -92,8 +78,6 @@ También se incluyen manuales en `manuales/`:
 * `manual_usuario.pdf`
 * `manual_implementacion.pdf`
 * `manual_codigo_arquitectura.pdf`
-
----
 
 ## 8. Versión H5P / Lumi
 

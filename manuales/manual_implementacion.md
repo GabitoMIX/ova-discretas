@@ -3,8 +3,6 @@
 
 Este manual describe cómo preparar, validar y publicar el OVA final como sitio estático en GitHub Pages.
 
----
-
 ## 1. Requisitos
 
 Para usar el OVA no se requiere instalación. Basta con un navegador moderno.
@@ -14,8 +12,6 @@ Para regenerar artefactos de entrega se recomienda tener:
 * Node.js.
 * Git.
 * Lumi Desktop, solo si se desea abrir o revisar el archivo `.h5p`.
-
----
 
 ## 2. Archivos Principales
 
@@ -37,8 +33,6 @@ COSAS DEL AULA/
 
 La carpeta `resoucers/` conserva ese nombre porque la aplicación ya referencia esa ruta.
 
----
-
 ## 3. Preparación Antes De Subir A GitHub
 
 Desde la raíz del repositorio:
@@ -54,8 +48,6 @@ npm run h5p
 
 Estos comandos validan JavaScript, regeneran manuales PDF y reconstruyen el paquete H5P final.
 
----
-
 ## 4. Ejecución Local
 
 Abrir directamente:
@@ -65,8 +57,6 @@ index.html
 ```
 
 No hay paso de build. Los scripts de `npm` son herramientas auxiliares, no son necesarios para ejecutar el OVA.
-
----
 
 ## 5. Publicación En GitHub Pages
 
@@ -85,8 +75,6 @@ https://TU-USUARIO.github.io/NOMBRE-DEL-REPOSITORIO/
 
 Como `index.html` está en la raíz, GitHub Pages lo sirve automáticamente.
 
----
-
 ## 6. Generación De Manuales
 
 Los manuales Markdown se encuentran en `manuales/`. Los PDF se generan con PDFKit:
@@ -100,8 +88,6 @@ El script `generate_pdfs.js` produce:
 * `manuales/manual_usuario.pdf`
 * `manuales/manual_implementacion.pdf`
 * `manuales/manual_codigo_arquitectura.pdf`
-
----
 
 ## 7. Generación Del Paquete H5P
 
@@ -117,8 +103,6 @@ El script `generate_h5p_package.js` genera:
 * `dist/README_H5P_ENTREGA.md`
 
 El H5P usa la librería `H5P.OvaMatematicasDiscretas` y sirve como versión editable/importable en Lumi.
-
----
 
 ## 8. Validaciones Recomendadas
 
@@ -140,8 +124,6 @@ También se recomienda abrir `index.html` en el navegador y revisar:
 * apertura de PDFs,
 * evaluación final,
 * certificado.
-
----
 
 ## 9. Notas De Operación
 
